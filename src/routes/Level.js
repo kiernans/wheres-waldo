@@ -1,18 +1,14 @@
-import React from 'react'
-import { LevelNavbar } from '../components/LevelNavbar'
-import '../styles/Level.css'
+import React from "react";
+import { LevelNavbar } from "../components/LevelNavbar";
+import "../styles/Level.css";
 
-export const Level = ({ image, level, characters }) => {
-    
+const Level = ({ image, level, characters }) => (
+  <>
+    <LevelNavbar />
+    <div className="level-image">
+      <img src={image} alt="" />
+    </div>
+  </>
+);
 
-
-    return (
-        <>
-            <LevelNavbar />
-            <div className='level-image'>
-                <img src={image} alt=''/>
-            </div>
-        </>
-        
-    )
-}
+export default Level;
