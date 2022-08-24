@@ -1,5 +1,5 @@
 import React from "react";
-import { LevelNavbar } from "../components/LevelNavbar";
+import LevelNavbar from "../components/LevelNavbar";
 import "../styles/Level.css";
 
 const Level = ({ image, level, characters }) => (
