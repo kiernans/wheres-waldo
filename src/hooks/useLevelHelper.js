@@ -1,5 +1,11 @@
 const useLevelHelper = () => {
-  const answer = { name: "waldo", level: 1, x: 1411, y: 483 };
+  const answer = {
+    id: 1,
+    names: ["waldo", "test", "test2"],
+    level: 1,
+    x: 1411,
+    y: 483,
+  };
 
   const getCoordinatesFromImage = (e) => {
     const x = e.pageX - e.target.offsetLeft;
