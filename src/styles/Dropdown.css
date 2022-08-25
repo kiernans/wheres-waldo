@@ -1,0 +1,15 @@
+.dropdown {
+  visibility: hidden;
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 55px;
+  text-align: center;
+  list-style: none;
+}
+.dropdown .menu-items {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  height: 24px;
+}/*# sourceMappingURL=Dropdown.css.map */
