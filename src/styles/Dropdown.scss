@@ -2,16 +2,26 @@
     visibility: hidden;
     position: absolute;
     background-color: white;
-    border: 1px solid black;
-    border-radius: 12px;
-    width: 55px;
+    width: 85px;
+    border-radius: 10px;
     text-align: center;
     list-style: none;
+    z-index: 2;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%);
 
-    .menu-items {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-        height: 24px
-    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        padding: 8px 12px;
+      }
+      
+      li:hover {
+        background-color: rgba(0, 0, 0, 0.14);
+        cursor: pointer;
+      }
 
 }
