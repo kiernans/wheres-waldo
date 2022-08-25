@@ -1,20 +1,16 @@
 const useLevelHelper = () => {
-  const [answer, setAnswer] = useState([
-    { name: "waldo", level: 1, x: 1411, y: 483 },
-  ]);
+  const answer = { name: "waldo", level: 1, x: 1411, y: 483 };
 
-  const getCoordinates = (e) => {
+  const getCoordinatesFromImage = (e) => {
     const x = e.pageX - e.target.offsetLeft;
     const y = e.pageY - e.target.offsetTop;
-    console.log(x, y);
+    // console.log(x, y);
     return { x, y };
   };
 
   const compareAnswerCoordinatesWithChoice = (fAnswer, choice) => {
-    const xAnswer = fAnswer.x;
-    const yAnswer = fAnswer.y;
-    const xChoice = choice.x;
-    const yChoice = choice.y;
+    const { x: xAnswer, y: yAnswer } = fAnswer;
+    const { x: xChoice, y: yChoice } = choice;
 
     if (Math.abs(xAnswer - xChoice) < 30 && Math.abs(yAnswer - yChoice) < 30)
       return true;
@@ -23,7 +19,7 @@ const useLevelHelper = () => {
   };
 
   return {
-    getCoordinates,
+    getCoordinatesFromImage,
     answer,
     compareAnswerCoordinatesWithChoice,
   };
