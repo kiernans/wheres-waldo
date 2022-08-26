@@ -12,7 +12,6 @@ const useLevelHelper = () => {
   const getCoordinatesFromImage = (e) => {
     const x = e.pageX - e.target.offsetLeft;
     const y = e.pageY - e.target.offsetTop;
-    // console.log(x, y);
     return { x, y };
   };
 

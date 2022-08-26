@@ -22,6 +22,7 @@ const Level = ({ image }) => {
   };
 
   const handleMenuClick = (e) => {
+    // Get choiceName from dropdown
     setChoiceName(e.target.innerHTML);
   };
 
