@@ -6,7 +6,8 @@ import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
 
 const Level = ({ image }) => {
-  const [choice, setChoice] = useState({ x: 0, y: 0 });
+  const [choice, setChoice] = useState({ x: null, y: null });
+  const [choiceName, setChoiceName] = useState("");
 
   const {
     getCoordinatesFromImage,
@@ -14,25 +15,41 @@ const Level = ({ image }) => {
     compareAnswerCoordinatesWithChoice,
   } = useLevelHelper();
 
-  const { id, level, names } = answer;
+  const { level, characters } = answer;
 
-  const handleOnClick = (e) => {
+  const handleImageOnClick = (e) => {
     setChoice(getCoordinatesFromImage(e));
   };
 
+  const handleMenuClick = (e) => {
+    setChoiceName(e.target.innerHTML);
+  };
+
   useEffect(() => {
-    console.log(choice);
-    console.log(compareAnswerCoordinatesWithChoice(answer, choice));
-  }, [choice]);
+    if (choiceName) {
+      console.log(compareAnswerCoordinatesWithChoice(choice, choiceName));
+      setChoiceName("");
+    }
+  }, [choiceName]);
 
   return (
     <>
       <LevelNavbar />
       <div className="level-image">
-        <img src={image} alt="" onClick={handleOnClick} aria-hidden="true" />
+        <img
+          src={image}
+          alt=""
+          onClick={handleImageOnClick}
+          aria-hidden="true"
+        />
         {level}
       </div>
-      <Dropdown id={id} names={names} choice={choice} />
+      <Dropdown
+        characters={characters}
+        choice={choice}
+        choiceName={choiceName}
+        handleMenuClick={handleMenuClick}
+      />
     </>
   );
 };
