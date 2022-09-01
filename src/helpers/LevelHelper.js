@@ -7,7 +7,7 @@ export const getCoordinatesFromImage = (e) => {
 const getCharacterFromLevels = (array, choiceName) =>
   array.filter((character) => character.name === choiceName)[0];
 
-export const compareAnswerCoordinatesWithChoice = (
+export const compareLevelCoordinatesWithChoice = (
   levels,
   choice,
   choiceName
@@ -25,3 +25,6 @@ export const compareAnswerCoordinatesWithChoice = (
 
   return false;
 };
+
+export const removeCharacterFromLevels = (array, choiceName) =>
+  array.filter((character) => character.name !== choiceName);

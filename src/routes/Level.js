@@ -3,28 +3,41 @@ import PropTypes from "prop-types";
 import LevelNavbar from "../components/LevelNavbar";
 import {
   getCoordinatesFromImage,
-  compareAnswerCoordinatesWithChoice,
+  compareLevelCoordinatesWithChoice,
+  removeCharacterFromLevels,
 } from "../helpers/LevelHelper";
 import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
 import { levels } from "../assets/levels";
 
 const Level = ({ image }) => {
-  const [choice, setChoice] = useState({ x: null, y: null });
+  const [choiceCoords, setChoiceCoords] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
+  const [characters, setCharacters] = useState([]);
 
-  const { level, characters } = levels;
+  const { level } = levels;
 
   const handleImageOnClick = (e) => {
-    setChoice(getCoordinatesFromImage(e));
+    setChoiceCoords(getCoordinatesFromImage(e));
   };
 
   const handleMenuClick = (e) => {
     // Get choiceName from dropdown
     const name = e.target.innerHTML;
     setChoiceName(name);
-    const result = compareAnswerCoordinatesWithChoice(levels, choice, name);
+    const result = compareLevelCoordinatesWithChoice(
+      levels,
+      choiceCoords,
+      name
+    );
+    if (result) {
+      setCharacters((prevChars) => removeCharacterFromLevels(prevChars, name));
+    }
   };
+
+  useEffect(() => {
+    setCharacters(levels.characters);
+  }, []);
 
   return (
     <>
@@ -40,7 +53,7 @@ const Level = ({ image }) => {
       </div>
       <Dropdown
         characters={characters}
-        choice={choice}
+        choiceCoords={choiceCoords}
         choiceName={choiceName}
         handleMenuClick={handleMenuClick}
       />
