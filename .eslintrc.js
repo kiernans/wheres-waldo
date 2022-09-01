@@ -34,5 +34,6 @@ module.exports = {
     "no-console": "off",
     "no-unused-vars": "off",
     "no-debugger": "off",
+    "import/prefer-default-export": "off",
   },
 };
