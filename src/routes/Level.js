@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import LevelNavbar from "../components/LevelNavbar";
-import useLevelHelper from "../hooks/useLevelHelper";
+import {
+  getCoordinatesFromImage,
+  compareAnswerCoordinatesWithChoice,
+} from "../helpers/LevelHelper";
 import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
+import { levels } from "../assets/levels";
 
 const Level = ({ image }) => {
   const [choice, setChoice] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
 
-  const {
-    getCoordinatesFromImage,
-    answer,
-    compareAnswerCoordinatesWithChoice,
-  } = useLevelHelper();
-
-  const { level, characters } = answer;
+  const { level, characters } = levels;
 
   const handleImageOnClick = (e) => {
     setChoice(getCoordinatesFromImage(e));
@@ -23,15 +21,10 @@ const Level = ({ image }) => {
 
   const handleMenuClick = (e) => {
     // Get choiceName from dropdown
-    setChoiceName(e.target.innerHTML);
+    const name = e.target.innerHTML;
+    setChoiceName(name);
+    const result = compareAnswerCoordinatesWithChoice(levels, choice, name);
   };
-
-  useEffect(() => {
-    if (choiceName) {
-      console.log(compareAnswerCoordinatesWithChoice(choice, choiceName));
-      setChoiceName("");
-    }
-  }, [choiceName]);
 
   return (
     <>
