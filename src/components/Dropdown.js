@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "../styles/Dropdown.css";
 
-const Dropdown = ({ characters, choice, handleMenuClick, choiceName }) => {
+const Dropdown = ({
+  characters,
+  choiceCoords,
+  handleMenuClick,
+  choiceName,
+}) => {
   const showDropdown = (xPos, yPos) => {
     const dropdown = document.querySelector(".dropdown");
     if (xPos) dropdown.style.visibility = "visible";
@@ -17,7 +22,7 @@ const Dropdown = ({ characters, choice, handleMenuClick, choiceName }) => {
     }, []);
   });
 
-  useEffect(() => showDropdown(choice.x, choice.y), [choice]);
+  useEffect(() => showDropdown(choiceCoords.x, choiceCoords.y), [choiceCoords]);
 
   return (
     <ul className="dropdown">
@@ -34,7 +39,7 @@ Dropdown.propTypes = {
   characters: PropTypes.arrayOf(
     PropTypes.shape({ id: PropTypes.number, name: PropTypes.string })
   ).isRequired,
-  choice: PropTypes.objectOf(PropTypes.number).isRequired,
+  choiceCoords: PropTypes.objectOf(PropTypes.number).isRequired,
   handleMenuClick: PropTypes.func.isRequired,
   choiceName: PropTypes.string.isRequired,
 };
