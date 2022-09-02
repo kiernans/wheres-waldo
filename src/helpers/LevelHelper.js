@@ -28,3 +28,11 @@ export const compareLevelCoordinatesWithChoice = (
 
 export const removeCharacterFromLevels = (array, choiceName) =>
   array.filter((character) => character.name !== choiceName);
+
+export const showDropdown = (coordinates) => {
+  const { x: xPos, y: yPos } = coordinates;
+  const dropdown = document.querySelector(".dropdown");
+  if (xPos) dropdown.style.visibility = "visible";
+  dropdown.style.left = `${xPos + 25}px`;
+  dropdown.style.top = `${yPos + 40}px`;
+};

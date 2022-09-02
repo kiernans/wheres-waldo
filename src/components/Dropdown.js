@@ -8,21 +8,12 @@ const Dropdown = ({
   handleMenuClick,
   choiceName,
 }) => {
-  const showDropdown = (xPos, yPos) => {
-    const dropdown = document.querySelector(".dropdown");
-    if (xPos) dropdown.style.visibility = "visible";
-    dropdown.style.left = `${xPos + 25}px`;
-    dropdown.style.top = `${yPos + 40}px`;
-  };
-
   useEffect(() => {
     const menuItems = document.querySelectorAll(".menu-items");
     menuItems.forEach((item) => {
       item.addEventListener("click", handleMenuClick);
     }, []);
   });
-
-  useEffect(() => showDropdown(choiceCoords.x, choiceCoords.y), [choiceCoords]);
 
   return (
     <ul className="dropdown">
