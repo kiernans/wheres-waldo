@@ -5,6 +5,7 @@ import {
   getCoordinatesFromImage,
   compareLevelCoordinatesWithChoice,
   removeCharacterFromLevels,
+  showDropdown,
 } from "../helpers/LevelHelper";
 import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
@@ -18,7 +19,9 @@ const Level = ({ image }) => {
   const { level } = levels;
 
   const handleImageOnClick = (e) => {
-    setChoiceCoords(getCoordinatesFromImage(e));
+    const newCoords = getCoordinatesFromImage(e);
+    setChoiceCoords(newCoords);
+    showDropdown(newCoords);
   };
 
   const handleMenuClick = (e) => {
