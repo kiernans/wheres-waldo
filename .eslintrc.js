@@ -11,7 +11,7 @@ module.exports = {
   },
   plugins: ["react", "prettier", "prefer-arrow"],
   rules: {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
     "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
     "prefer-arrow/prefer-arrow-functions": [
       "error",
