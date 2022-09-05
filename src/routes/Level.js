@@ -11,15 +11,14 @@ import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
 import { levels } from "../assets/levels";
 
-const Level = ({ image }) => {
+const Level = ({ image, level }) => {
   const [choiceCoords, setChoiceCoords] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
   const [characters, setCharacters] = useState([]);
 
-  const { level } = levels;
-
   const handleImageOnClick = (e) => {
     const newCoords = getCoordinatesFromImage(e);
+    console.log(newCoords);
     setChoiceCoords(newCoords);
     showDropdown(newCoords);
   };
@@ -29,17 +28,19 @@ const Level = ({ image }) => {
     const name = e.target.innerHTML;
     setChoiceName(name);
     const result = compareLevelCoordinatesWithChoice(
-      levels,
+      characters,
       choiceCoords,
       name
     );
+    console.log(result);
     if (result) {
       setCharacters((prevChars) => removeCharacterFromLevels(prevChars, name));
     }
   };
 
   useEffect(() => {
-    setCharacters(levels.characters);
+    const currLevel = levels.filter((item) => item.level === level)[0];
+    setCharacters(currLevel.characters);
   }, []);
 
   return (
@@ -52,7 +53,6 @@ const Level = ({ image }) => {
           onClick={handleImageOnClick}
           aria-hidden="true"
         />
-        {level}
       </div>
       <Dropdown
         characters={characters}
@@ -66,6 +66,7 @@ const Level = ({ image }) => {
 
 Level.propTypes = {
   image: PropTypes.string.isRequired,
+  level: PropTypes.number.isRequired,
 };
 
 export default Level;

@@ -8,11 +8,11 @@ const getCharacterFromLevels = (array, choiceName) =>
   array.filter((character) => character.name === choiceName)[0];
 
 export const compareLevelCoordinatesWithChoice = (
-  levels,
+  characters,
   choice,
   choiceName
 ) => {
-  const character = getCharacterFromLevels(levels.characters, choiceName);
+  const character = getCharacterFromLevels(characters, choiceName);
   const { x: xAnswer, y: yAnswer } = character || { x: null, y: null };
   const { x: xChoice, y: yChoice } = choice;
 
