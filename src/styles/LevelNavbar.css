@@ -11,10 +11,13 @@
 
 .nav-items {
   display: flex;
-  width: 100vw;
-  justify-content: flex-end;
-  position: relative;
-  right: 50px;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-items img {
+  width: 80px;
+  height: 80px;
 }
 
 .nav-items a:hover {
