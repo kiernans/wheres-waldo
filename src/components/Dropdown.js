@@ -19,6 +19,7 @@ const Dropdown = ({
     <ul className="dropdown">
       {characters.map((character) => (
         <li key={character.id} className="menu-items">
+          <img src={require(`../assets/${character.image}`)} alt="" />
           {character.name}
         </li>
       ))}
@@ -28,7 +29,13 @@ const Dropdown = ({
 
 Dropdown.propTypes = {
   characters: PropTypes.arrayOf(
-    PropTypes.shape({ id: PropTypes.number, name: PropTypes.string })
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      x: PropTypes.number,
+      y: PropTypes.number,
+      image: PropTypes.string,
+    })
   ).isRequired,
   choiceCoords: PropTypes.objectOf(PropTypes.number).isRequired,
   handleMenuClick: PropTypes.func.isRequired,
