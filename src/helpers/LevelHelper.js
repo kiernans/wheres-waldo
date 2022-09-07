@@ -14,12 +14,13 @@ export const compareLevelCoordinatesWithChoice = (
 ) => {
   const character = getCharacterFromLevels(characters, choiceName);
   const { x: xAnswer, y: yAnswer } = character || { x: null, y: null };
-  const { x: xChoice, y: yChoice } = choice;
+  const { x: xChoice, y: yChoice } = choice || { x: null, y: null };
+  const { name } = character || "";
 
   if (
     Math.abs(xAnswer - xChoice) < 30 &&
     Math.abs(yAnswer - yChoice) < 30 &&
-    choiceName === character.name
+    choiceName === name
   )
     return true;
 
