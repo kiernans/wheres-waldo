@@ -1,38 +1,29 @@
 import React, { useEffect, useState } from "react";
 
 const Timer = () => {
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const [milliseconds, setMilliseconds] = useState(0);
+  const [timer, setTimer] = useState(0);
 
-  const incrementMinute = () => {
-    setMinutes((prevMinutes) => prevMinutes + 1);
+  const incrementTimer = () => {
+    setTimer((prevTimer) => prevTimer + 1);
   };
 
-  const incrementSecond = () => {
-    setSeconds((prevSeconds) => prevSeconds + 1);
-  };
+  const formatTimer = (time) => {
+    const seconds = `0${Math.round(time % 60)}`.slice(-2);
+    const minutes = `0${Math.floor(time / 60) % 60}`.slice(-2);
 
-  const incrementMillisecond = () => {
-    setMilliseconds((prevMilliseconds) => prevMilliseconds + 1);
+    return `${minutes}:${seconds}`;
   };
 
   useEffect(() => {
-    let interval = 0;
-
-    interval = setInterval(incrementSecond, 1000);
+    const interval = setInterval(incrementTimer, 1000);
 
     return () => {
       clearInterval(interval);
-      setSeconds(0);
+      setTimer(0);
     };
-  }, []);
+  }, [timer]);
 
-  return (
-    <div>
-      {minutes}:{seconds}:{milliseconds}
-    </div>
-  );
+  return <>{formatTimer(timer)}</>;
 };
 
 export default Timer;
