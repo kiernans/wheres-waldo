@@ -9,9 +9,8 @@ import {
 } from "../helpers/LevelHelper";
 import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
-import { levels } from "../assets/levels";
 
-const Level = ({ image, level }) => {
+const Level = ({ image, level, levels }) => {
   const [choiceCoords, setChoiceCoords] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
   const [characters, setCharacters] = useState([]);
@@ -67,6 +66,20 @@ const Level = ({ image, level }) => {
 Level.propTypes = {
   image: PropTypes.string.isRequired,
   level: PropTypes.number.isRequired,
+  levels: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      image: PropTypes.string,
+      characters: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number,
+          name: PropTypes.string,
+          x: PropTypes.number,
+          y: PropTypes.number,
+        })
+      ),
+    })
+  ).isRequired,
 };
 
 export default Level;
