@@ -15,9 +15,18 @@
   justify-content: space-between;
   align-items: center;
 }
-.nav-items img {
+.nav-items .icon {
   width: 80px;
   height: 80px;
+}
+.nav-items .character-icons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 335px;
+}
+.nav-items .character-icons img {
+  height: 45px;
+  width: 45px;
 }
 
 .nav-items a:hover {

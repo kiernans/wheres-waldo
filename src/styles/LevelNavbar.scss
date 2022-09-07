@@ -15,9 +15,20 @@
     justify-content: space-between;
     align-items: center;
 
-    img {
+    .icon {
         width: 80px;
         height: 80px;
+    }
+
+    .character-icons {
+        display: flex;
+        justify-content: space-evenly;
+        width: 335px;
+    }
+
+    .character-icons img {
+        height: 45px;
+        width: 45px;
     }
 }
 
