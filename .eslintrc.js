@@ -35,5 +35,7 @@ module.exports = {
     "no-unused-vars": "off",
     "no-debugger": "off",
     "import/prefer-default-export": "off",
+    "global-require": "off",
+    "import/no-dynamic-require": "off",
   },
 };
