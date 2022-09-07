@@ -1,0 +1,15 @@
+@font-face {
+  font-family: RampartOne;
+  src: url(../assets/fonts/RampartOne-Regular.ttf);
+}
+.main-nav-items {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  font-family: RampartOne;
+  color: red;
+}
+.main-nav-items img {
+  width: 80px;
+  height: 80px;
+}/*# sourceMappingURL=MainNavbar.css.map */
