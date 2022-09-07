@@ -14,6 +14,7 @@ const Level = ({ image, level, levels }) => {
   const [choiceCoords, setChoiceCoords] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
   const [characters, setCharacters] = useState([]);
+  const currLevel = levels.filter((item) => item.level === level)[0];
 
   const handleImageOnClick = (e) => {
     const newCoords = getCoordinatesFromImage(e);
@@ -24,7 +25,7 @@ const Level = ({ image, level, levels }) => {
 
   const handleMenuClick = (e) => {
     // Get choiceName from dropdown
-    const name = e.target.innerHTML;
+    const name = e.target.textContent;
     setChoiceName(name);
     const result = compareLevelCoordinatesWithChoice(
       characters,
@@ -38,7 +39,6 @@ const Level = ({ image, level, levels }) => {
   };
 
   useEffect(() => {
-    const currLevel = levels.filter((item) => item.level === level)[0];
     setCharacters(currLevel.characters);
   }, []);
 
@@ -47,7 +47,7 @@ const Level = ({ image, level, levels }) => {
       <LevelNavbar />
       <div className="level-image">
         <img
-          src={image}
+          src={require(`../assets/${currLevel.image}`)}
           alt=""
           onClick={handleImageOnClick}
           aria-hidden="true"
