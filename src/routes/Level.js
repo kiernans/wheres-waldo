@@ -19,14 +19,19 @@ const Level = ({ image, level, levels }) => {
   const handleImageOnClick = (e) => {
     const newCoords = getCoordinatesFromImage(e);
     console.log(newCoords);
-    setChoiceCoords(newCoords);
+    setChoiceCoords(() => newCoords);
     showDropdown(newCoords);
+    if (!characters) {
+      console.log("Finished!");
+    }
   };
 
   const handleMenuClick = (e) => {
     // Get choiceName from dropdown
     const name = e.target.textContent;
-    setChoiceName(name);
+    setChoiceName(() => name);
+    console.log(name);
+    console.log(choiceCoords);
     const result = compareLevelCoordinatesWithChoice(
       characters,
       choiceCoords,
@@ -44,7 +49,7 @@ const Level = ({ image, level, levels }) => {
 
   return (
     <>
-      <LevelNavbar />
+      <LevelNavbar characters={characters} />
       <div className="level-image">
         <img
           src={require(`../assets/${currLevel.image}`)}
