@@ -4,6 +4,7 @@ const Timer = () => {
   const [timer, setTimer] = useState(0);
 
   const incrementTimer = () => {
+    debugger;
     setTimer((prevTimer) => prevTimer + 1);
   };
 
@@ -18,10 +19,11 @@ const Timer = () => {
     const interval = setInterval(incrementTimer, 1000);
 
     return () => {
+      debugger;
       clearInterval(interval);
       setTimer(0);
     };
-  }, [timer]);
+  });
 
   return <>{formatTimer(timer)}</>;
 };
