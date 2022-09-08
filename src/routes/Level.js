@@ -18,7 +18,6 @@ const Level = ({ level, levels, initializeLevels }) => {
 
   const handleImageOnClick = (e) => {
     const newCoords = getCoordinatesFromImage(e);
-    console.log(newCoords);
     setChoiceCoords(() => newCoords);
     showDropdown(newCoords);
     if (!characters) {
@@ -30,14 +29,11 @@ const Level = ({ level, levels, initializeLevels }) => {
     // Get choiceName from dropdown
     const name = e.target.textContent;
     setChoiceName(() => name);
-    console.log(name);
-    console.log(choiceCoords);
     const result = compareLevelCoordinatesWithChoice(
       characters,
       choiceCoords,
       name
     );
-    console.log(result);
     if (result) {
       setCharacters((prevChars) => removeCharacterFromLevels(prevChars, name));
     }
