@@ -10,35 +10,37 @@ import MainNavbar from "../components/MainNavbar";
 import "../styles/MainPage.css";
 
 const MainPage = () => (
-  <div className="main-content">
+  <>
     <MainNavbar />
-    <div className="items">
-      <Link to="level1" className="item">
-        <img src={level1} alt="" />
-        Level 1
-      </Link>
-      <Link to="level2" className="item">
-        <img src={level2} alt="" />
-        Level 2
-      </Link>
-      <Link to="level3" className="item">
-        <img src={level3} alt="" />
-        Level 3
-      </Link>
-      <Link to="level4" className="item">
-        <img src={level4} alt="" />
-        Level 4
-      </Link>
-      <Link to="level5" className="item">
-        <img src={level5} alt="" />
-        Level 5
-      </Link>
-      <Link to="level6" className="item">
-        <img src={level6} alt="" />
-        Level 6
-      </Link>
+    <div className="main-content">
+      <div className="items">
+        <Link to="level1" className="item">
+          <img src={level1} alt="" />
+          Level 1
+        </Link>
+        <Link to="level2" className="item">
+          <img src={level2} alt="" />
+          Level 2
+        </Link>
+        <Link to="level3" className="item">
+          <img src={level3} alt="" />
+          Level 3
+        </Link>
+        <Link to="level4" className="item">
+          <img src={level4} alt="" />
+          Level 4
+        </Link>
+        <Link to="level5" className="item">
+          <img src={level5} alt="" />
+          Level 5
+        </Link>
+        <Link to="level6" className="item">
+          <img src={level6} alt="" />
+          Level 6
+        </Link>
+      </div>
     </div>
-  </div>
+  </>
 );
 
 export default MainPage;
