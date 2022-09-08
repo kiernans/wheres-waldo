@@ -10,7 +10,7 @@ import {
 import "../styles/Level.css";
 import Dropdown from "../components/Dropdown";
 
-const Level = ({ level, levels }) => {
+const Level = ({ level, levels, initializeLevels }) => {
   const [choiceCoords, setChoiceCoords] = useState({ x: null, y: null });
   const [choiceName, setChoiceName] = useState("");
   const [characters, setCharacters] = useState([]);
@@ -42,6 +42,14 @@ const Level = ({ level, levels }) => {
       setCharacters((prevChars) => removeCharacterFromLevels(prevChars, name));
     }
   };
+
+  useEffect(() => {
+    console.log("here");
+    if (!levels) {
+      console.log("now here");
+      initializeLevels(JSON.parse(window.localStorage.getItem("levels")));
+    }
+  }, []);
 
   useEffect(() => {
     setCharacters(currLevel.characters);
@@ -85,6 +93,7 @@ Level.propTypes = {
       ),
     })
   ).isRequired,
+  initializeLevels: PropTypes.func.isRequired,
 };
 
 export default Level;
