@@ -10,7 +10,7 @@ import MainNavbar from "../components/MainNavbar";
 import "../styles/MainPage.css";
 
 const MainPage = () => (
-  <>
+  <div className="main-content">
     <MainNavbar />
     <div className="items">
       <Link to="level1" className="item">
@@ -38,7 +38,7 @@ const MainPage = () => (
         Level 6
       </Link>
     </div>
-  </>
+  </div>
 );
 
 export default MainPage;

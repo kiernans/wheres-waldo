@@ -1,14 +1,23 @@
-.items {
+.main-content {
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 100px;
 
-    .item {
+     .items {
+        width: 50vw;
+        height: 100vh;
         display: flex;
-        flex-direction: column;
-        align-items: center;    
+        flex-wrap: wrap;
+        gap: 170px;
+        align-content: center;
+        justify-content: center;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+        }
     }
-}
+} 
